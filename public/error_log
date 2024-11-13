@@ -1,0 +1,10 @@
+[10-Jul-2024 02:33:31 UTC] PHP Warning:  require(/home/eventpro/registrasi-colab.eventpro.id/../app/Config/Paths.php): Failed to open stream: No such file or directory in /home/eventpro/registrasi-colab.eventpro.id/index.php on line 48
+[10-Jul-2024 02:33:31 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/eventpro/registrasi-colab.eventpro.id/../app/Config/Paths.php' (include_path='.:/opt/alt/php83/usr/share/pear:/opt/alt/php83/usr/share/php:/usr/share/pear:/usr/share/php') in /home/eventpro/registrasi-colab.eventpro.id/index.php:48
+Stack trace:
+#0 {main}
+  thrown in /home/eventpro/registrasi-colab.eventpro.id/index.php on line 48
+[10-Jul-2024 02:34:49 UTC] PHP Warning:  require(/home/eventpro/registrasi-colab.eventpro.id/../app/Config/Paths.php): Failed to open stream: No such file or directory in /home/eventpro/registrasi-colab.eventpro.id/index.php on line 48
+[10-Jul-2024 02:34:49 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/eventpro/registrasi-colab.eventpro.id/../app/Config/Paths.php' (include_path='.:/opt/alt/php83/usr/share/pear:/opt/alt/php83/usr/share/php:/usr/share/pear:/usr/share/php') in /home/eventpro/registrasi-colab.eventpro.id/index.php:48
+Stack trace:
+#0 {main}
+  thrown in /home/eventpro/registrasi-colab.eventpro.id/index.php on line 48
