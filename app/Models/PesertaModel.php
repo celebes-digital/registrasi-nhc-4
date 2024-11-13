@@ -88,7 +88,7 @@ class PesertaModel extends Model
 		! $where || $this->builder()->where($where);
 
 		return $this->builder()
-					->select('peserta.idPeserta, nama, jenisKelamin, namaUsaha,
+					->select('peserta.idPeserta, nama, jenisKelamin, tgl_lahir, alamat, pendidikan,
 							tglRegistrasi, kodeRegistrasi, noTelp, tglValidasi, validasi, peserta.foto,')
 					->join('detail_peserta', 'peserta.idPeserta = detail_peserta.idPeserta', 'left');
 	}

@@ -4,7 +4,8 @@ $this->section('mainSection');
 ?>
 
 <?php #if ($event) : ?>
-<!-- <form action="<? #= $event ? '/registrasi/peserta' : '!#'; ?>" method="<? #= $event ? 'post' : '!#'; ?>" 
+<!-- <form action="<? #= $event ? '/registrasi/peserta' : '!#'; ?>" 
+method="<? #= $event ? 'post' : '!#'; ?>" 
 enctype="multipart/form-data" role="form" class="pb-5 shadow" style="max-width: 80vw"> -->
 
 <?= form_open_multipart(attributes: 'role="form" class="elegant-form" id="form-registrasi"'); ?>
@@ -14,7 +15,7 @@ enctype="multipart/form-data" role="form" class="pb-5 shadow" style="max-width: 
 	<div class="mb-4">
 		<img src="/img/flayer-kolaborasi.jpeg" alt="Nama Event" class="img-fluid" />
 	</div>
-	<h4 class="text-muted mb-4">Form Pendaftaran</h4>
+	<h4 class="mb-4">Form Pendaftaran NHC Batch 4</h4>
 </div>
 
 <?php if (session()->info) : ?>
@@ -40,7 +41,7 @@ enctype="multipart/form-data" role="form" class="pb-5 shadow" style="max-width: 
 			<div class="form-group">
 				<label for="tgl_lahir">Tanggal Lahir <span class="required-field">*</span></label>
 				<input type="date" name="tgl_lahir" id="tgl_lahir" value="<?= old('tgl_lahir'); ?>"
-					class="form-control <?= validation_show_error('tgl_lahir') ? 'is-invalid' : ''; ?>">
+					class="form-control tgl <?= validation_show_error('tgl_lahir') ? 'is-invalid' : ''; ?>">
 				<div class="invalid-feedback"><?= validation_show_error('tgl_lahir'); ?></div>
 			</div>
 		</div>
@@ -97,6 +98,26 @@ enctype="multipart/form-data" role="form" class="pb-5 shadow" style="max-width: 
 	</div>
 <?php endif; ?>
 </form>
+<script>
+	document.getElementById('foto').addEventListener('change', function(e) {
+		const file = e.target.files[0];
+		if (file) {
+			// Validasi ukuran file (2MB)
+			if (file.size > 5 * 1024 * 1024) {
+				alert('Ukuran file terlalu besar. Maksimal 5MB');
+				this.value = '';
+				return;
+			}
+
+			// Validasi tipe file
+			if (!file.type.match('image.*')) {
+				alert('File harus berupa gambar');
+				this.value = '';
+				return;
+			}
+		}
+	});
+</script>
 <?php #else : 
 ?>
 <!-- <div class="alert alert-danger" role="alert">

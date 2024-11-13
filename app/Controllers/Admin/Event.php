@@ -316,10 +316,10 @@ class Event extends BaseController
 		$spreadsheet->getProperties()->setCreator('Celebes Solusi Digital Makassar')
 											->setLastModifiedBy('Exclusively for Celebes Solusi Digital')
 											->setTitle('Data Peserta Event')
-											->setSubject('Registrasi Event Seminar HSN')
-											->setDescription('Registrasi Event Seminar HSN')
-											->setKeywords('Registrasi Event Seminar HSN')
-											->setCategory('Registrasi Event Seminar HSN');
+											->setSubject('Registrasi Event NHC Batch 4')
+											->setDescription('Registrasi Event NHC Batch 4')
+											->setKeywords('Registrasi Event NHC Batch 4')
+											->setCategory('Registrasi Event NHC Batch 4');
 
 		$no = 1;
 		$contentStart = 5;

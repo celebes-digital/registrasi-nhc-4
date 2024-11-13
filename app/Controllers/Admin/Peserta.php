@@ -74,7 +74,7 @@ class Peserta extends BaseController
 
 					$dataEvent['event'] = [
 						'nama_event'	=> $eventAktif->namaEvent,
-						'nama_peserta'	=> 'Bapak/Ibu '.' '.trim($dataPeserta['nama']),
+						'nama_peserta'	=> ''.' '.trim($dataPeserta['nama']),
 					];
 
 					$notifikasi = notifValidasi($dataEvent);
@@ -249,6 +249,8 @@ class Peserta extends BaseController
 
 		$this->data['title'] = 'Peserta yang Sudah Divalidasi';
 		$this->data['listPeserta'] = $this->PesertaModel->detailPeserta($where)->get()->getResult();
+
+		// dd($this->data['listPeserta']);
 
 		return view('admin/data_validasi', $this->data);
 	}

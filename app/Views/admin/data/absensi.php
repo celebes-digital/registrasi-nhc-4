@@ -37,7 +37,7 @@
 							<span class="fs-4">
 								Klik <code class="font-monospace">Nama Peserta</code> untuk <code class="font-monospace">melihat detail data peserta</code>.
 							</span>
-                  </div>
+						</div>
 
 						<a href="/admin/data/exportDataAbsensi/<?= $uri->getSegment(4); ?>" class="btn --btn-sm btn-success mt-3 shadow-sm">
 							<i class="icon-notebook mr-1"></i> Data Peserta (Excel)

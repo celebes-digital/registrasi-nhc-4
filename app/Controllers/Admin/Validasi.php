@@ -35,7 +35,7 @@ class Validasi extends BaseController
 		if ( $this->request->getPost('validasi') !== '' )
 		{
 			$dataEvent['event'] = [
-				'nama_peserta'	=> 'Bapak/Ibu ' . trim($peserta->nama),
+				'nama_peserta'	=> '' . trim($peserta->nama),
 			];
 
 			$this->DetailPesertaModel->save(['idPeserta' => $idPeserta, 'validasi' => '1', 'kodeRegistrasi' => $code]);
@@ -159,7 +159,7 @@ class Validasi extends BaseController
 		$peserta = $this->PesertaModel->detailPeserta(['peserta.idPeserta' => $idPeserta])->get()->getRow();
 
 		$dataEvent['event'] = [
-			'nama_peserta'	=> 'Bapak/Ibu ' . trim($peserta->nama),
+			'nama_peserta'	=> '' . trim($peserta->nama),
 		];
 
 		$notifikasi = notifValidasi($dataEvent);

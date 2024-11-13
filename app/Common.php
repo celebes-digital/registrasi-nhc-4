@@ -275,9 +275,9 @@ if ( ! function_exists('notifRegistrasi') )
 	function notifRegistrasi(array $data)
 	{
 		$text = "Assalamu'alaikum *{$data['event']['nama_peserta']}*,\r\n
-Perkenalkan saya Admin Seminar HSN yang akan membantu Anda untuk skema registrasi kepesertaan.
+Perkenalkan saya Admin NHC Batch 4 yang akan membantu Anda untuk skema registrasi kepesertaan.
 
-Terima kasih telah melakukan pendaftaran di event Seminar HSN
+Terima kasih telah melakukan pendaftaran di event NHC Batch 4
 
 Kegiatan akan dilaksanakan pada tanggal 19 September 2024, bertempat di GEDUNG BPS SULAWESI SELATAN, Jl. H. Bau No.6, Kota Makassar.
 
@@ -301,10 +301,10 @@ if ( ! function_exists('notifValidasi') )
 {
 	function notifValidasi(array $data)
 	{
-		$text = "Halo *Bapak/Ibu {$data['event']['nama_peserta']}*,
-Terima kasih telah melakukan pembayaran untuk tiket Seminar HSN. Kami sangat menghargai partisipasi Anda dalam acara ini. Berikut adalah e-ticket Anda yang perlu dibawa saat acara:
+		$text = "Halo *{$data['event']['nama_peserta']}*,
+Terima kasih telah melakukan pembayaran untuk tiket NHC Batch 4. Kami sangat menghargai partisipasi Anda dalam acara ini. Berikut adalah e-ticket Anda yang perlu dibawa saat acara:
 
-🌟 Seminar HSN
+🌟 NHC Batch 4
 🗓️ Kamis, 19 September 2024
 📍 GEDUNG BPS SULAWESI SELATAN
 🛣️ Jl. H. Bau No.6, Kunjung Mae, Kec. Mariso, Kota Makassar

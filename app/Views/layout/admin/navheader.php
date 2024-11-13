@@ -11,7 +11,7 @@
 							<!-- Logo text -->
 							<span class="ms-2">
 								<!-- dark Logo text -->
-								<span class="d-block">Seminar HSN</span>
+								<span class="d-block">NHC Batch 4</span>
 								<span class="d-block">2024</span>
 							</span>
 						</a>

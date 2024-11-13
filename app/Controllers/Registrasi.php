@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Controllers;
+
 use App\Libraries\KirimWA;
 use CodeIgniter\Exceptions\PageNotFoundException;
 
@@ -144,13 +145,27 @@ class Registrasi extends BaseController
 				'tglRegistrasi' => date('Y-m-d H:i:s')
 			];
 
-			if ($this->PesertaModel->save($dataPeserta)) {
-				// Generate QR Code untuk peserta
-				$code = generateCode(); // Fungsi untuk membuat kode unik
-				$this->QRCode->generate($code);
+			// Tanda peserta sudah tervalidasi
+			$detailPeserta['validasi'] = '1';
 
+			// Generate QR code untuk peserta
+			$code = generateCode();
+			$this->QRCode::generate($code); // Fungsi ini untuk membuat QR Code
+
+			// Data event untuk notifikasi
+			$dataEvent['event'] = [
+				'nama_peserta'  => 'Bapak/Ibu ' . trim($dataPeserta['nama']),
+			];
+
+			if ($this->PesertaModel->save($dataPeserta)) {
+				// Mengirim notifikasi WA dengan QR code
+				$notifikasi = notifRegistrasi($dataEvent);
+				$imgUrl = base_url('img/admin/qrcode/' . $code . '.png');
+				$sendWA = $this->WAapi->postMsgImg($notifikasi, $dataPeserta['noTelp'], $imgUrl);
+
+				// Simpan detail peserta termasuk kode registrasi dan status validasi
 				$detailPeserta['idPeserta'] = $this->PesertaModel->getInsertID();
-				$detailPeserta['kodeRegistrasi'] = $code;
+				$detailPeserta['kodeRegistrasi'] = $code; // Simpan kode registrasi sebagai QR code
 
 				if ($this->DetailPesertaModel->save($detailPeserta)) {
 					return redirect()->to('/registrasi/checkout?id=' . $this->PesertaModel->getInsertID());
@@ -177,13 +192,13 @@ class Registrasi extends BaseController
 
 		$this->data['event']			= $this->EventModel->where('aktif', '1')->first();
 		$this->data['title']			= $this->data['event'] ?
-											'Terima kasih sudah mendaftar di ' . $this->data['event']->namaEvent :
-											'EventPro Registration System by CelebesDigital';
+			'Terima kasih sudah mendaftar di ' . $this->data['event']->namaEvent :
+			'EventPro Registration System by CelebesDigital';
 		$this->data['ogDescription']	= $this->data['event'] ? $this->data['event']->namaEvent : 'EventPro Registration System by CelebesDigital';
 		$this->data['metaDescription']	= $this->data['event'] ? $this->data['event']->namaEvent : 'EventPro Registration System by CelebesDigital';
 		$this->data['eventKegiatan']	= $this->data['event'] ? $this->data['event']->namaEvent : 'EventPro Registration System by CelebesDigital';
 		// $this->data['sapaan'] 			= ['l' => 'Bapak', 'p' => 'Ibu'];
-		$this->data['sapaan'] 			= 'Bapak/Ibu';
+		$this->data['sapaan'] 			= '';
 		$this->data['peserta']			= $peserta;
 
 		return view('checkout', $this->data);

@@ -20,12 +20,12 @@
 	<link href="/css/style.css" rel="stylesheet">
 
 	<!-- OG Graph -->
-	<meta property="og:title" content="Registrasi Seminar HSN 2024">
+	<meta property="og:title" content="Registrasi NHC Batch 4 2024">
 	<meta property="og:type" content="Article">
-	<meta property="og:description" content="Registrasi Seminar HSN">
+	<meta property="og:description" content="Registrasi NHC Batch 4">
 	<meta property="og:image" content="<?= base_url('img/flayer-kolaborasi.jpeg'); ?>">
 	<meta property="og:url" content="<?= current_url(); ?>">
-	<meta property="og:site_name" content="Seminar HSN">
+	<meta property="og:site_name" content="NHC Batch 4">
 	<meta property="og:locale" content="id_id">
 
 	<style>

@@ -10,10 +10,10 @@ class Home extends BaseController
 		// $widget	= new Widget();
 		// $event	= $this->EventModel->where('aktif', '1')->first();
 
-		// $this->data['title']			= $event ? 'Seminar HSN' : 'EventPro Registration System by CelebesDigital';
-		// $this->data['ogDescription']	= $event ? 'Seminar HSN' : 'EventPro Registration System by CelebesDigital';
-		// $this->data['metaDescription']	= $event ? 'Seminar HSN' : 'EventPro Registration System by CelebesDigital';
-		// $this->data['event']			= $event ? 'Seminar HSN' : 'EventPro Registration System by CelebesDigital';
+		// $this->data['title']			= $event ? 'NHC Batch 4' : 'EventPro Registration System by CelebesDigital';
+		// $this->data['ogDescription']	= $event ? 'NHC Batch 4' : 'EventPro Registration System by CelebesDigital';
+		// $this->data['metaDescription']	= $event ? 'NHC Batch 4' : 'EventPro Registration System by CelebesDigital';
+		// $this->data['event']			= $event ? 'NHC Batch 4' : 'EventPro Registration System by CelebesDigital';
 
 		// $this->data['about']			= $widget->about();
 		// $this->data['contact']			= $widget->contact();

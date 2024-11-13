@@ -10,7 +10,7 @@ $this->section('mainSection');
 			<!-- <h5>Akun Bapak/Ibu akan divalidasi oleh Admin Registrasi</h5>
 			<p>Bapak/Ibu bisa melunasi pembayaran melalui transfer rekening bank sebagai berikut:</p> -->
 			<p class="fs-5">
-				Bapak/Ibu akan menerima QrCode yang dikirimkan melalui nomor WhatsApp yang sudah didaftarkan sebelumnya.
+				Kamu akan menerima QrCode yang dikirimkan melalui nomor WhatsApp yang sudah didaftarkan sebelumnya.
 			</p>
 		</div>
 
