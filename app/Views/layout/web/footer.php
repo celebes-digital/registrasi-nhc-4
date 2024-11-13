@@ -57,5 +57,26 @@
 				});
 			}
 		</script>
+		<script>
+			document.getElementById('foto').addEventListener('change', function(e) {
+				const file = e.target.files[0];
+				if (file) {
+					// Validasi ukuran file (2MB)
+					if (file.size > 5 * 1024 * 1024) {
+						alert('Ukuran file terlalu besar. Maksimal 5MB');
+						this.value = '';
+						return;
+					}
+					
+					// Validasi tipe file
+					if (!file.type.match('image.*')) {
+						alert('File harus berupa gambar');
+						this.value = '';
+						return;
+					}
+				}
+			});
+		</script>
+
 	</body>
 </html>

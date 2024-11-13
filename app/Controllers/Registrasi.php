@@ -99,53 +99,58 @@ class Registrasi extends BaseController
 	 * @return void
 	 */
 	// ? Gunakan ini jika peserta langsung di verifikasi ketika registrasi
-
 	public function peserta()
 	{
 		$rules = setting('Validation.registrasi');
 
 		$this->data['title'] = $this->data['event'] ? 'Registrasi Event ' . $this->data['event']->namaEvent : 'EventPro Registration System by CelebesDigital';
 		$this->data['ogDescription'] = $this->data['event'] ? $this->data['event']->namaEvent : 'EventPro Registration System by CelebesDigital';
-		$this->data['metaDescription'] = $this->data['event'] ? $this->data['event']->namaEvent : 'EventPro Registration System by CelebesDigital';
+		$this->data['metaDescription'] = $this->data['event'] ? $this->data['event']->namaEvent : 'EventPro Registration System by CelebesDigital';;
 
 		if ($this->request->getPost()) {
 			if (! $this->validate($rules)) {
 				return redirect()->back()->withInput();
 			}
 
-			// Data pendaftaran peserta
-			$noTelp = formatPhone($this->request->getVar('noTelp'));
+			// Upload Foto
+			$fileFoto = $this->request->getFile('foto');
+			$path	= FCPATH . 'img/registrasi/';
+			if ($fileFoto && $fileFoto->isValid()) {
+				$namaPeserta = strtoupper(trim($this->request->getPost('nama')));
+				$snakeCaseNama = strtolower(preg_replace('/[^a-zA-Z0-9]+/', '_', $namaPeserta)); // Ubah nama menjadi snake_case
+				$fileName = $snakeCaseNama . '.' . $fileFoto->getExtension();
 
+				$uploadPath = $path;
+				if (!is_dir($uploadPath)) {
+					mkdir($uploadPath, 0777, true); // Buat folder jika belum ada
+				}
+
+				$fileFoto->move($uploadPath, $fileName);
+			} else {
+				return redirect()->back()->withInput()->with('error', 'Foto belum diunggah atau tidak valid!');
+			}
+
+			// Simpan data peserta
+			$noTelp = formatPhone($this->request->getVar('noTelp'));
 			$dataPeserta = [
-				'idEvent'       => ($this->data['event'] ? $this->data['event']->idEvent : 0),
+				'idEvent'       => $this->data['event'] ? $this->data['event']->idEvent : 0,
 				'nama'          => strtoupper(trim($this->request->getPost('nama'))),
+				'tgl_lahir'     => strtoupper(trim($this->request->getPost('tgl_lahir'))),
+				'jenisKelamin'  => $this->request->getPost('jenisKelamin'),
 				'noTelp'        => $noTelp,
-				// 'asalInstansi'  => strtoupper(trim($this->request->getPost('asalInstansi'))),
-				// 'jabatan'       => strtoupper(trim($this->request->getPost('jabatan'))),
+				'alamat'        => strtoupper(trim($this->request->getPost('alamat'))),
+				'pendidikan'    => strtoupper(trim($this->request->getPost('pendidikan'))),
+				'foto'          => $fileName,
 				'tglRegistrasi' => date('Y-m-d H:i:s')
 			];
 
-			// Tanda peserta sudah tervalidasi
-			$detailPeserta['validasi'] = '1';
-
-			// Generate QR code untuk peserta
-			$code = generateCode();
-			$this->QRCode::generate($code); // ? Fungsi ini untuk membuat QR Code
-
-			// Data event untuk notifikasi
-			$dataEvent['event'] = [
-				'nama_peserta'  => 'Bapak/Ibu ' . trim($dataPeserta['nama']),
-			];
-
 			if ($this->PesertaModel->save($dataPeserta)) {
-				// Mengirim notifikasi WA dengan QR code
-				$notifikasi = notifRegistrasi($dataEvent);
-				$imgUrl = base_url('img/admin/qrcode/' . $code . '.png');
-				$sendWA = $this->WAapi->postMsgImg($notifikasi, $dataPeserta['noTelp'], $imgUrl);
+				// Generate QR Code untuk peserta
+				$code = generateCode(); // Fungsi untuk membuat kode unik
+				$this->QRCode->generate($code);
 
-				// Simpan detail peserta termasuk kode registrasi dan status validasi
 				$detailPeserta['idPeserta'] = $this->PesertaModel->getInsertID();
-				$detailPeserta['kodeRegistrasi'] = $code; // Simpan kode registrasi sebagai QR code
+				$detailPeserta['kodeRegistrasi'] = $code;
 
 				if ($this->DetailPesertaModel->save($detailPeserta)) {
 					return redirect()->to('/registrasi/checkout?id=' . $this->PesertaModel->getInsertID());
@@ -155,7 +160,6 @@ class Registrasi extends BaseController
 
 		return view('registrasi', $this->data);
 	}
-
 
 	// https://simulator.sandbox.midtrans.com/qris/index
 

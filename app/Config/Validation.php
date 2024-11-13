@@ -116,56 +116,60 @@ class Validation extends BaseConfig
 
 	public $registrasi = [
 		'nama' => [
-			'rules'				=> 'required',
-			'errors'			=> [
-				'required'			=> 'Nama belum diisi!',
+			'rules'     => 'required|min_length[2]|max_length[100]',
+			'errors'    => [
+				'required'   => 'Nama belum diisi!',
+				'min_length' => 'Nama minimal 2 karakter!',
+				'max_length' => 'Nama maksimal 100 karakter!'
+			]
+		],
+		'tgl_lahir' => [
+			'rules'     => 'required|valid_date',
+			'errors'    => [
+				'required'   => 'Tanggal lahir belum diisi!',
+				'valid_date' => 'Format tanggal lahir tidak valid!'
+			]
+		],
+		'jenisKelamin' => [
+			'rules'     => 'required|in_list[l,p]',
+			'errors'    => [
+				'required'   => 'Jenis kelamin belum dipilih!',
+				'in_list'    => 'Pilihan jenis kelamin tidak valid!'
 			]
 		],
 		'noTelp' => [
-			'rules'				=> "required",
-			'errors'			=> [
-				'required'			=> 'Anda belum mengisi No. Telp. (WA)!',
+			'rules'     => 'required|numeric|min_length[10]|max_length[15]',
+			'errors'    => [
+				'required'   => 'No. Telepon belum diisi!',
+				'numeric'    => 'No. Telepon harus berupa angka!',
+				'min_length' => 'No. Telepon minimal 10 digit!',
+				'max_length' => 'No. Telepon maksimal 15 digit!'
 			]
 		],
-		'asalInstansi' => [
-			'rules'				=> "required",
-			'errors'			=> [
-				'required'			=> 'Anda belum mengisi Asal Instansi!',
+		'alamat' => [
+			'rules'     => 'required|min_length[5]|max_length[255]',
+			'errors'    => [
+				'required'   => 'Alamat belum diisi!',
+				'min_length' => 'Alamat terlalu pendek!',
+				'max_length' => 'Alamat terlalu panjang!'
 			]
 		],
-		'jabatan' => [
-			'rules'				=> "required",
-			'errors'			=> [
-				'required'			=> 'Anda belum mengisi Jabatan',
+		'pendidikan' => [
+			'rules'     => 'required',
+			'errors'    => [
+				'required'   => 'Pendidikan belum dipilih!',
+				'in_list'    => 'Pilihan pendidikan tidak valid!'
 			]
 		],
-		// 'jenisKelamin' => [
-		// 	'rules'				=> "required",
-		// 	'errors'			=> [
-		// 		'required'			=> 'Anda belum memilih Jenis Kelamin!',
-		// 	]
-		// ],
-		// 'email' => [
-		// 	'rules'				=> "required|valid_email",
-		// 	'errors'			=> [
-		// 		'required'			=> 'Anda belum mengisi Alamat Email',
-		// 		'valid_email'		=> 'Format Email Tidak Valid'
-		// 	]
-		// ],
-		// 'namaUsaha' => [
-		// 	'rules'				=> "required",
-		// 	'errors'			=> [
-		// 		'required'			=> 'Anda belum mengisi Nama Usaha',
-		// 	]
-		// ],
-		// 'foto' => [
-		// 	// 'rules'				=> 'uploaded[foto]',
-		// 	'errors'			=> [
-		// 		'uploaded'			=> 'Foto belum diisi',
-		// 		'is_image'			=> 'File yang dipilih bukan gambar. File yang diijinkan adalah *.jpg, *.jpeg, dan *.png',
-		// 		'mime_in'			=> 'File yang diijinkan adalah *.jpg, *.jpeg, dan *.png'
-		// 	]
-		// ],
+		'foto' => [
+			'rules'     => 'uploaded[foto]|is_image[foto]|mime_in[foto,image/jpg,image/jpeg,image/png]|max_size[foto,5120]', // 5MB
+			'errors'    => [
+				'uploaded'   => 'Foto belum diisi!',
+				'is_image'   => 'File yang dipilih bukan gambar!',
+				'mime_in'    => 'Format foto harus JPG, JPEG, atau PNG!',
+				'max_size'   => 'Ukuran foto maksimal 5MB!'
+			]
+		],
 	];
 
 	public $event = [

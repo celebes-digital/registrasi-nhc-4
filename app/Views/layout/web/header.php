@@ -29,7 +29,8 @@
 	<meta property="og:locale" content="id_id">
 
 	<style>
-		#form-registrasi, #footer-registrasi {
+		#form-registrasi,
+		#footer-registrasi {
 			max-width: 60vw;
 		}
 
@@ -38,7 +39,9 @@
 		}
 
 		@media (max-width: 567px) {
-			#form-registrasi, #footer-registrasi {
+
+			#form-registrasi,
+			#footer-registrasi {
 				max-width: 86vw;
 			}
 
@@ -65,6 +68,86 @@
 
 		.registration-form {
 			padding: 50px 20px;
+		}
+	</style>
+	<style>
+		.elegant-form {
+			max-width: 800px;
+			margin: 2rem auto;
+			padding: 2rem;
+			background: white;
+			border-radius: 20px;
+			box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+		}
+
+		.elegant-form .form-group {
+			margin-bottom: 1.5rem;
+		}
+
+		.elegant-form label {
+			font-weight: 500;
+			color: #2c3e50;
+			font-size: 1.1rem !important;
+			margin-bottom: 0.5rem;
+			background: transparent !important;
+		}
+
+		.elegant-form .form-control,
+		.elegant-form .form-select {
+			border: 2px solid #e9ecef;
+			border-radius: 12px;
+			padding: 0.8rem 1rem;
+			transition: all 0.3s ease;
+			font-size: 1rem;
+		}
+
+		.elegant-form .form-control:focus,
+		.elegant-form .form-select:focus {
+			border-color: #4a90e2;
+			box-shadow: 0 0 0 0.2rem rgba(74, 144, 226, 0.1);
+		}
+
+		.elegant-form .btn-submit {
+			background: linear-gradient(45deg, #4a90e2, #357abd);
+			border: none;
+			border-radius: 12px;
+			color: white;
+			padding: 1rem;
+			font-weight: 600;
+			transition: all 0.3s ease;
+		}
+
+		.elegant-form .btn-submit:hover {
+			transform: translateY(-2px);
+			box-shadow: 0 5px 15px rgba(74, 144, 226, 0.3);
+		}
+
+		.elegant-form .invalid-feedback {
+			border-radius: 8px;
+			padding: 0.5rem 1rem;
+			margin-top: 0.5rem;
+			font-size: 0.9rem;
+		}
+
+		.form-header {
+			text-align: center;
+			margin-bottom: 2rem;
+		}
+
+		.form-header img {
+			max-width: 100%;
+			border-radius: 15px;
+			box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+		}
+
+		.required-field {
+			color: #e74c3c;
+			margin-left: 4px;
+		}
+
+		.field-icon {
+			color: #95a5a6;
+			margin-right: 8px;
 		}
 	</style>
 </head>

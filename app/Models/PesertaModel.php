@@ -11,7 +11,19 @@ class PesertaModel extends Model
 	protected $returnType				= 'object';
 	protected $useSoftDelete			= false;
 	protected $protectFields			= true;
-	protected $allowedFields			= ['idEvent', 'komunitas', 'nama', 'jenisKelamin', 'noTelp', 'email', 'tglRegistrasi', 'asalInstansi', 'jabatan'];
+	protected $allowedFields = [
+		'idEvent',
+		'idDpd',
+		'orderId',
+		'nama',
+		'jenisKelamin',
+		'noTelp',
+		'alamat',
+		'pendidikan',
+		'tgl_lahir',
+		'foto',
+		'tglRegistrasi',
+	];
 
 	protected bool $allowEmptyInserts	= false;
 	protected bool $updateOnlyChanged	= true;
@@ -62,8 +74,7 @@ class PesertaModel extends Model
 
 		return $this->builder()
 					->select('peserta.idPeserta, nama, jenisKelamin, namaUsaha,
-							tglRegistrasi, kodeRegistrasi,
-							noTelp, email, tglValidasi, validasi, foto')
+							tglRegistrasi, kodeRegistrasi, noTelp, email, tglValidasi, validasi, foto')
 					->join('detail_peserta', 'peserta.idPeserta = detail_peserta.idPeserta', 'left');
 	}
 
@@ -78,8 +89,7 @@ class PesertaModel extends Model
 
 		return $this->builder()
 					->select('peserta.idPeserta, nama, jenisKelamin, namaUsaha,
-							tglRegistrasi, kodeRegistrasi, noTelp, email, tglValidasi, validasi, foto,
-							asalInstansi, jabatan')
+							tglRegistrasi, kodeRegistrasi, noTelp, tglValidasi, validasi, peserta.foto,')
 					->join('detail_peserta', 'peserta.idPeserta = detail_peserta.idPeserta', 'left');
 	}
 

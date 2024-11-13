@@ -31,50 +31,44 @@ class Peserta extends Migration
 				'null'				=> true
 			],
 			'nama' => [
-				'type'				=> 'VARCHAR',
-				'constraint'		=> 100,
+				'type'       => 'VARCHAR',
+				'constraint' => 100,
 			],
 			'jenisKelamin' => [
-				'type'				=> 'ENUM',
-				'constraint'		=> ['l', 'p'],
-				'default'			=> 'l'
+				'type'       => 'ENUM',
+				'constraint' => ['l', 'p'],
+				'default'    => 'l',
 			],
 			'noTelp' => [
-				'type'				=> 'VARCHAR',
-				'constraint'		=> 16,
+				'type'       => 'VARCHAR',
+				'constraint' => 16,
 			],
-			// 'asalInstansi' => [
-			// 	'type'				=> 'VARCHAR',
-			// 	'constraint'		=> 255,
-			// ],
-			// 'jabatan' => [
-			// 	'type'				=> 'VARCHAR',
-			// 	'constraint'		=> 255,
-			// ],
-			'email' => [
-				'type'				=> 'VARCHAR',
-				'constraint'		=> 16,
+			'alamat' => [
+				'type'       => 'VARCHAR',
+				'constraint' => 255,
+				'null'       => true,
 			],
-			'propinsi' => [
-				'type'				=> 'VARCHAR',
-				'constraint'		=> 100,
+			'pendidikan' => [
+				'type'       => 'VARCHAR',
+				'constraint' => 100,
+				'null'       => true,
 			],
-			'kabupaten' => [
-				'type'				=> 'VARCHAR',
-				'constraint'		=> 100,
+			'tgl_lahir' => [
+				'type' => 'DATE',
+				'null' => true,
+			],
+			'foto' => [
+				'type'       => 'VARCHAR',
+				'constraint' => 255,
+				'null'       => true,
 			],
 			'tglRegistrasi' => [
-				'type'				=> 'DATETIME'
-			]
+				'type' => 'DATETIME',
+			],
 		]);
 
 		$this->forge->addPrimaryKey('idPeserta');
 		$this->forge->addKey(['idEvent', 'idDpd']);
 		$this->forge->createTable('peserta', true, ['Engine' => 'InnoDB']);
-    }
-
-    public function down()
-    {
-        $this->forge->dropTable('peserta', true);
-    }
+	}
 }
