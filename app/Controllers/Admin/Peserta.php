@@ -245,10 +245,11 @@ class Peserta extends BaseController
 	 */
 	public function validasi()
 	{
-		$where = ['validasi' => '1'];
+		// $where = ['validasi' => '1'];
 
-		$this->data['title'] = 'Peserta yang Sudah Divalidasi';
-		$this->data['listPeserta'] = $this->PesertaModel->detailPeserta($where)->get()->getResult();
+		$this->data['title'] = 'Peserta yang sudah terdaftar';
+		// $this->data['listPeserta'] = $this->PesertaModel->detailPeserta($where)->get()->getResult();
+		$this->data['listPeserta'] = $this->PesertaModel->detailPeserta()->get()->getResult();
 
 		// dd($this->data['listPeserta']);
 

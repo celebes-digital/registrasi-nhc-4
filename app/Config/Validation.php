@@ -137,6 +137,13 @@ class Validation extends BaseConfig
 				'in_list'    => 'Pilihan jenis kelamin tidak valid!'
 			]
 		],
+		'kelas' => [
+			'rules'     => 'required|in_list[senior,junior]',
+			'errors'    => [
+				'required'   => 'Kelas belum dipilih!',
+				'in_list'    => 'Pilihan Kelas tidak valid!'
+			]
+		],
 		'noTelp' => [
 			'rules'     => 'required|numeric|min_length[10]|max_length[15]',
 			'errors'    => [

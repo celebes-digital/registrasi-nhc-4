@@ -76,8 +76,8 @@
 									</td>
 
 									<td class="p-2"><?= $peserta->noTelp; ?></td>
-									<td class="p-2"><?= $peserta->asalInstansi; ?></td>
-									<td class="p-2"><?= $peserta->jabatan; ?></td>
+									<td class="p-2"><?= $peserta->kelas; ?></td>
+									<!-- <td class="p-2"><?#= $peserta->jabatan; ?></td> -->
 									<td class="p-2"><?= date('d F, Y - H:i:s', strtotime($peserta->tglRegistrasi)); ?></td>
 									<td class="py-2">
 										<a href="/admin/peserta/hapus/<?= $peserta->idPeserta; ?>" class="ms-2 hapus_peserta" data-bs-toggle="tooltip" data-bs-title="Hapus Peserta">

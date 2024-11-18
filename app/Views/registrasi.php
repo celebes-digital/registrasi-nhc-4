@@ -103,8 +103,8 @@ enctype="multipart/form-data" role="form" class="pb-5 shadow" style="max-width: 
 		<select name="kelas" id="kelas"
 			class="form-select <?= validation_show_error('kelas') ? 'is-invalid' : ''; ?>">
 			<option value="">Pilih kelas</option>
-			<option value="l" <?= presetSelect('kelas', 'junior'); ?>>Junior <img src="<?= base_url('img/junior.png'); ?>" alt=""></option>
-			<option value="p" <?= presetSelect('kelas', 'senior'); ?>>Senior</option>
+			<option value="junior" <?= presetSelect('kelas', 'junior'); ?>>Junior (Figma)</option>
+			<option value="senior" <?= presetSelect('kelas', 'senior'); ?>>Senior (Javascript)</option>
 		</select>
 		<div class="invalid-feedback"><?= validation_show_error('kelas'); ?></div>
 	</div>

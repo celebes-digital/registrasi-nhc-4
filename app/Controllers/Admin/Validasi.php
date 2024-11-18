@@ -92,9 +92,9 @@ class Validasi extends BaseController
 								</div>
 
 								<div class="row mb-1">
-									<label class="col-sm-3 col-form-label">Nama Usaha</label>
+									<label class="col-sm-3 col-form-label">Kelas</label>
 									<div class="col-sm-9">
-										<input type="text" name="namaUsaha" value="'.strtoupper($peserta->namaUsaha).'" class="form-control-plaintext" disabled>
+										<input type="text" name="kelas" value="'.strtoupper($peserta->kelas).'" class="form-control-plaintext" disabled>
 									</div>
 								</div>
 
@@ -110,18 +110,13 @@ class Validasi extends BaseController
 									<div class="col-sm-9">
 										<label for="validasi" class="col-form-label">
 											<span class="me-2">Belum</span>'.
+											// dd($peserta->validasi);
 											form_checkbox('validasi', '1', presetCheckbox('validasi', '1', $peserta->validasi), 'class="js-switch" id="validasi" data-size="small" data-color="#1fb920" '.( ! $peserta->validasi ?: 'disabled')).'
 											<span class="ms-2">Sudah</span>
 										</label>
 									</div>
 								</div>
 
-								<div class="row">
-									<label class="col-sm-3 col-form-label">Dokumen</label>
-									<div class="col-sm-9">
-										<img src="/img/admin/dokumen/'.$peserta->foto.'" class="img-fluid img-thumbnail" />
-									</div>
-								</div>
 							</div>
 
 							<div class="col-md-3 text-center">

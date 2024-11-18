@@ -90,7 +90,7 @@ class PesertaModel extends Model
 
 		return $this->builder()
 					->select('peserta.idPeserta, nama, jenisKelamin, tgl_lahir, alamat, pendidikan,
-							tglRegistrasi, kodeRegistrasi, noTelp, tglValidasi, validasi, peserta.foto,')
+							tglRegistrasi, kodeRegistrasi, noTelp, tglValidasi, validasi, peserta.foto, kelas')
 					->join('detail_peserta', 'peserta.idPeserta = detail_peserta.idPeserta', 'left');
 	}
 

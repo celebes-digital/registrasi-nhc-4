@@ -27,7 +27,7 @@ $this->section('mainSection');
 	<div class="col-lg-12 col-md-12">
 		<div class="card">
 			<div class="card-body">
-				<h5 class="card-title">DATA PESERTA YANG SUDAH VALIDASI</h5>
+				<h5 class="card-title">DATA PESERTA YANG SUDAH TERDAFTAR</h5>
 				<p>Klik Nama Peserta untuk melihat Detail Data Peserta</p>
 			</div>
 
@@ -58,6 +58,8 @@ $this->section('mainSection');
 							<th class="p-2">ALAMAT</th>
 							<th class="p-2">PENDIDIKAN</th>
 							<th class="p-2">FOTO</th>
+							<th class="p-2">Kelas</th>
+							<th class="p-2">VALIDASI</th>
 							<th class="p-2">TGL. REGISTRASI</th>
 						</tr>
 					</thead>
@@ -66,7 +68,7 @@ $this->section('mainSection');
 						<?php
 						if ($listPeserta) :
 							$no = 1;
-							dd($listPeserta);
+							// dd($listPeserta);
 							foreach ($listPeserta as $peserta) :
 						?>
 								<tr>
@@ -82,8 +84,18 @@ $this->section('mainSection');
 									<td class="p-2"><?= $peserta->alamat; ?></td>
 									<td class="p-2"><?= $peserta->pendidikan; ?></td>
 									<td class="p-2">
-										<img src="<?= base_url(); ?>/img/registrasi/<?= $peserta->foto; ?>" class="img-fluid" alt="<?= $peserta->nama; ?>">
+										<!-- <img src="<? #= base_url(); ?>/img/registrasi/<? #= $peserta->foto; ?>" class="img-fluid img-thumbnail h-25" alt="<? #= $peserta->nama; ?>"> -->
+										<img src="<?= base_url(); ?>/img/registrasi/<?= $peserta->foto; ?>"
+											class="img-fluid img-thumbnail gambar-preview"
+											alt="<?= $peserta->nama; ?>"
+											style="max-height: 150px; cursor: pointer;"
+											data-bs-toggle="modal"
+											data-bs-target="#modal-gambar"
+											data-src="<?= base_url(); ?>/img/registrasi/<?= $peserta->foto; ?>"
+											data-alt="<?= $peserta->nama; ?>" />
 									</td>
+									<td class="p-2"><?= $peserta->kelas ==  'junior' ? 'Junior' : 'Senior'; ?></td>
+									<td class="p-2"><?= $peserta->validasi == '0' ? 'V' : 'X'; ?></td>
 									<td class="p-2"><?= date('d F, Y - H:i:s', strtotime($peserta->tglRegistrasi)); ?></td>
 									<!-- <td class="p-2"><?php //echo strtoupper($peserta->jenisKelamin); 
 															?></td>
@@ -119,5 +131,41 @@ $this->section('mainSection');
 		<div class="modal-content"></div>
 	</div>
 </div>
+
+<div class="modal fade" id="modal-gambar" tabindex="-1" aria-labelledby="modalGambarLabel" aria-hidden="true">
+	<div class="modal-dialog modal-dialog-centered">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title" id="modalGambarLabel">Preview Gambar</h5>
+				<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+			</div>
+			<div class="modal-body text-center">
+				<img id="modal-img" src="" alt="" class="img-fluid img-thumbnail">
+			</div>
+			<div class="modal-footer">
+				<a id="download-link" href="#" download class="btn btn-primary">Download</a>
+				<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+<script>
+	document.querySelectorAll('.gambar-preview').forEach(function(img) {
+		img.addEventListener('click', function() {
+			const src = this.getAttribute('data-src');
+			const alt = this.getAttribute('data-alt');
+
+			// Update modal image and download link
+			const modalImg = document.getElementById('modal-img');
+			const downloadLink = document.getElementById('download-link');
+			modalImg.src = src;
+			modalImg.alt = alt;
+			downloadLink.href = src;
+			downloadLink.download = alt.replace(/\s+/g, '_') + '.jpg';
+		});
+	});
+</script>
+
 
 <?= $this->endSection(); ?>
