@@ -22,6 +22,7 @@ class PesertaModel extends Model
 		'pendidikan',
 		'tgl_lahir',
 		'foto',
+		'kelas',
 		'tglRegistrasi',
 	];
 

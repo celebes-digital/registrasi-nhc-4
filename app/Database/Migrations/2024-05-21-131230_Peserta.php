@@ -46,21 +46,21 @@ class Peserta extends Migration
 			'alamat' => [
 				'type'       => 'VARCHAR',
 				'constraint' => 255,
-				'null'       => true,
 			],
 			'pendidikan' => [
 				'type'       => 'VARCHAR',
 				'constraint' => 100,
-				'null'       => true,
 			],
 			'tgl_lahir' => [
 				'type' => 'DATE',
-				'null' => true,
 			],
 			'foto' => [
 				'type'       => 'VARCHAR',
 				'constraint' => 255,
-				'null'       => true,
+			],
+			'kelas' => [
+				'type'       => 'ENUM',
+				'constraint' => ['junior', 'senior'],
 			],
 			'tglRegistrasi' => [
 				'type' => 'DATETIME',
@@ -70,5 +70,10 @@ class Peserta extends Migration
 		$this->forge->addPrimaryKey('idPeserta');
 		$this->forge->addKey(['idEvent', 'idDpd']);
 		$this->forge->createTable('peserta', true, ['Engine' => 'InnoDB']);
+	}
+
+	public function down()
+	{
+		$this->forge->dropTable('peserta', true);
 	}
 }

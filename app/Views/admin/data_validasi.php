@@ -66,6 +66,7 @@ $this->section('mainSection');
 						<?php
 						if ($listPeserta) :
 							$no = 1;
+							dd($listPeserta);
 							foreach ($listPeserta as $peserta) :
 						?>
 								<tr>

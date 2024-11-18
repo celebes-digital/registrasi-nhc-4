@@ -104,9 +104,9 @@ class Registrasi extends BaseController
 	{
 		$rules = setting('Validation.registrasi');
 
-		$this->data['title'] = $this->data['event'] ? 'Registrasi Event ' . $this->data['event']->namaEvent : 'EventPro Registration System by CelebesDigital';
-		$this->data['ogDescription'] = $this->data['event'] ? $this->data['event']->namaEvent : 'EventPro Registration System by CelebesDigital';
-		$this->data['metaDescription'] = $this->data['event'] ? $this->data['event']->namaEvent : 'EventPro Registration System by CelebesDigital';;
+		$this->data['title'] 			= $this->data['event'] ? 'Registrasi Event ' . $this->data['event']->namaEvent : 'EventPro Registration System by CelebesDigital';
+		$this->data['ogDescription'] 	= $this->data['event'] ? $this->data['event']->namaEvent : 'EventPro Registration System by CelebesDigital';
+		$this->data['metaDescription'] 	= $this->data['event'] ? $this->data['event']->namaEvent : 'EventPro Registration System by CelebesDigital';;
 
 		if ($this->request->getPost()) {
 			if (! $this->validate($rules)) {
@@ -118,12 +118,12 @@ class Registrasi extends BaseController
 			$path	= FCPATH . 'img/registrasi/';
 			if ($fileFoto && $fileFoto->isValid()) {
 				$namaPeserta = strtoupper(trim($this->request->getPost('nama')));
-				$snakeCaseNama = strtolower(preg_replace('/[^a-zA-Z0-9]+/', '_', $namaPeserta)); // Ubah nama menjadi snake_case
+				$snakeCaseNama = strtolower(preg_replace('/[^a-zA-Z0-9]+/', '_', $namaPeserta));
 				$fileName = $snakeCaseNama . '.' . $fileFoto->getExtension();
 
 				$uploadPath = $path;
 				if (!is_dir($uploadPath)) {
-					mkdir($uploadPath, 0777, true); // Buat folder jika belum ada
+					mkdir($uploadPath, 0777, true);
 				}
 
 				$fileFoto->move($uploadPath, $fileName);
@@ -145,27 +145,23 @@ class Registrasi extends BaseController
 				'tglRegistrasi' => date('Y-m-d H:i:s')
 			];
 
-			// Tanda peserta sudah tervalidasi
-			$detailPeserta['validasi'] = '1';
+			$detailPeserta['validasi'] = '0';
 
-			// Generate QR code untuk peserta
 			$code = generateCode();
-			$this->QRCode::generate($code); // Fungsi ini untuk membuat QR Code
+			$this->QRCode::generate($code); 
 
-			// Data event untuk notifikasi
 			$dataEvent['event'] = [
 				'nama_peserta'  => 'Bapak/Ibu ' . trim($dataPeserta['nama']),
 			];
 
 			if ($this->PesertaModel->save($dataPeserta)) {
-				// Mengirim notifikasi WA dengan QR code
+				
 				$notifikasi = notifRegistrasi($dataEvent);
 				$imgUrl = base_url('img/admin/qrcode/' . $code . '.png');
 				$sendWA = $this->WAapi->postMsgImg($notifikasi, $dataPeserta['noTelp'], $imgUrl);
 
-				// Simpan detail peserta termasuk kode registrasi dan status validasi
 				$detailPeserta['idPeserta'] = $this->PesertaModel->getInsertID();
-				$detailPeserta['kodeRegistrasi'] = $code; // Simpan kode registrasi sebagai QR code
+				$detailPeserta['kodeRegistrasi'] = $code; 
 
 				if ($this->DetailPesertaModel->save($detailPeserta)) {
 					return redirect()->to('/registrasi/checkout?id=' . $this->PesertaModel->getInsertID());

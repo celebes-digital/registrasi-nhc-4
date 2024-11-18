@@ -3,9 +3,12 @@ $this->extend('layout/web/header');
 $this->section('mainSection');
 ?>
 
-<?php #if ($event) : ?>
-<!-- <form action="<? #= $event ? '/registrasi/peserta' : '!#'; ?>" 
-method="<? #= $event ? 'post' : '!#'; ?>" 
+<?php #if ($event) : 
+?>
+<!-- <form action="<? #= $event ? '/registrasi/peserta' : '!#'; 
+					?>" 
+method="<? #= $event ? 'post' : '!#'; 
+		?>" 
 enctype="multipart/form-data" role="form" class="pb-5 shadow" style="max-width: 80vw"> -->
 
 <?= form_open_multipart(attributes: 'role="form" class="elegant-form" id="form-registrasi"'); ?>
@@ -26,7 +29,7 @@ enctype="multipart/form-data" role="form" class="pb-5 shadow" style="max-width: 
 <?php endif; ?>
 
 <?php if (!session()->info) : ?>
-	<p class="text-muted small mb-4">Input yang dilengkapi simbol <span class="required-field">*</span> wajib diisi!</p>
+	<p class="mb-4">Input yang dilengkapi simbol <span class="required-field">*</span> wajib diisi!</p>
 
 	<div class="form-group">
 		<label for="nama">Nama <span class="required-field">*</span></label>
@@ -64,6 +67,7 @@ enctype="multipart/form-data" role="form" class="pb-5 shadow" style="max-width: 
 		<input type="tel" name="noTelp" id="noTelp" value="<?= set_value('noTelp'); ?>"
 			class="form-control <?= validation_show_error('noTelp') ? 'is-invalid' : ''; ?>"
 			placeholder="08xxxxxxxxxx" pattern="[0-9]{10,13}">
+		<small class="text-muted">Kode Registrasi akan dikirim melalui WhatsApp</small>
 		<div class="invalid-feedback"><?= validation_show_error('noTelp'); ?></div>
 	</div>
 
@@ -88,7 +92,21 @@ enctype="multipart/form-data" role="form" class="pb-5 shadow" style="max-width: 
 		<input type="file" name="foto" id="foto" accept="image/*"
 			class="form-control <?= validation_show_error('foto') ? 'is-invalid' : ''; ?>">
 		<div class="invalid-feedback"><?= validation_show_error('foto'); ?></div>
-		<small class="text-muted">Format: JPG, PNG. Maksimal 5MB</small>
+		<div class="d-flex flex-column">
+			<small class="text-muted">Foto akan digunakan sebagai foto ID CARD</small>
+			<small class="text-muted">Format: JPG, PNG. Maksimal 5MB</small>
+		</div>
+	</div>
+
+	<div class="form-group">
+		<label for="kelas">Pilih Kelas <span class="required-field">*</span></label>
+		<select name="kelas" id="kelas"
+			class="form-select <?= validation_show_error('kelas') ? 'is-invalid' : ''; ?>">
+			<option value="">Pilih kelas</option>
+			<option value="l" <?= presetSelect('kelas', 'junior'); ?>>Junior <img src="<?= base_url('img/junior.png'); ?>" alt=""></option>
+			<option value="p" <?= presetSelect('kelas', 'senior'); ?>>Senior</option>
+		</select>
+		<div class="invalid-feedback"><?= validation_show_error('kelas'); ?></div>
 	</div>
 
 	<div class="form-group mt-4">
