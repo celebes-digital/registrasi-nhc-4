@@ -34,6 +34,6 @@ class Home extends BaseController
 		// $this->data['youtube_short']	= $widget->youtube_short();
 		// $this->data['testimonials'] 	= $widget->testimonials();
 
-		// return view('home', $this->data);
+		return view('home', $this->data);
     }
 }

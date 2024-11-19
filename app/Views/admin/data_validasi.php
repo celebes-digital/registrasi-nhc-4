@@ -94,8 +94,15 @@ $this->section('mainSection');
 											data-src="<?= base_url(); ?>/img/registrasi/<?= $peserta->foto; ?>"
 											data-alt="<?= $peserta->nama; ?>" />
 									</td>
-									<td class="p-2"><?= $peserta->kelas ==  'junior' ? 'Junior' : 'Senior'; ?></td>
-									<td class="p-2"><?= $peserta->validasi == '0' ? 'V' : 'X'; ?></td>
+									<td class="p-2"><?=
+										$peserta->kelas == 'junior'
+										? 'Junior'
+										: ($peserta->kelas == 'beginner'
+										? 'Basic'
+											: 'Senior');
+										?>
+									</td>
+									<td class="p-2"><?= $peserta->validasi == '0' ? 'X' : 'Y'; ?></td>
 									<td class="p-2"><?= date('d F, Y - H:i:s', strtotime($peserta->tglRegistrasi)); ?></td>
 									<!-- <td class="p-2"><?php //echo strtoupper($peserta->jenisKelamin); 
 															?></td>
@@ -166,6 +173,5 @@ $this->section('mainSection');
 		});
 	});
 </script>
-
 
 <?= $this->endSection(); ?>

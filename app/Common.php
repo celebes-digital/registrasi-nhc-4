@@ -279,7 +279,7 @@ Perkenalkan saya Admin NHC Batch 4 yang akan membantu Anda untuk skema registras
 
 Terima kasih telah melakukan pendaftaran di event NHC Batch 4
 
-Kegiatan akan dilaksanakan pada tanggal 19 September 2024, bertempat di GEDUNG BPS SULAWESI SELATAN, Jl. H. Bau No.6, Kota Makassar.
+Kegiatan akan dilaksanakan pada tanggal 3 Januari 2025, bertempat di Hotel Whiz Prime, Jalan Sultan Hasanuddin No. 4.
 
 Kami akan segera melakukan proses validasi untuk mendapatkan seat Anda dalam event ini.
 

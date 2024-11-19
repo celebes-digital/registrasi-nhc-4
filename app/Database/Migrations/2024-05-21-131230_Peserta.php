@@ -60,7 +60,7 @@ class Peserta extends Migration
 			],
 			'kelas' => [
 				'type'       => 'ENUM',
-				'constraint' => ['junior', 'senior'],
+				'constraint' => ['junior', 'senior', 'beginner'],
 			],
 			'tglRegistrasi' => [
 				'type' => 'DATETIME',

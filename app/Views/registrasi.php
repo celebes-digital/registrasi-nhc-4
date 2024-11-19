@@ -15,8 +15,10 @@ enctype="multipart/form-data" role="form" class="pb-5 shadow" style="max-width: 
 <?= csrf_field(); ?>
 
 <div class="form-header">
-	<div class="mb-4">
-		<img src="/img/flayer-kolaborasi.jpeg" alt="Nama Event" class="img-fluid" />
+	<div class="mb-4 row row-cols-1 row-cols-md-2">
+		<!-- <img src="/img/flayer-kolaborasi.jpeg" alt="Nama Event" class="img-fluid" /> -->
+		<img src="/img/flayer-1.jpeg" alt="Nama Event" class="img-fluid col" />
+		<img src="/img/flayer-2.jpeg" alt="Nama Event" class="img-fluid col" />
 	</div>
 	<h4 class="mb-4">Form Pendaftaran NHC Batch 4</h4>
 </div>
@@ -103,8 +105,9 @@ enctype="multipart/form-data" role="form" class="pb-5 shadow" style="max-width: 
 		<select name="kelas" id="kelas"
 			class="form-select <?= validation_show_error('kelas') ? 'is-invalid' : ''; ?>">
 			<option value="">Pilih kelas</option>
-			<option value="junior" <?= presetSelect('kelas', 'junior'); ?>>Junior (Figma)</option>
-			<option value="senior" <?= presetSelect('kelas', 'senior'); ?>>Senior (Javascript)</option>
+			<option value="junior" <?= presetSelect('kelas', 'junior'); ?>>Junior - Figma (350K)</option>
+			<option value="beginner" <?= presetSelect('kelas', 'beginner'); ?>>Basic - HTML & CSS (400K)</option>
+			<option value="senior" <?= presetSelect('kelas', 'senior'); ?>>Intermediate - Javascript (450K)</option>
 		</select>
 		<div class="invalid-feedback"><?= validation_show_error('kelas'); ?></div>
 	</div>

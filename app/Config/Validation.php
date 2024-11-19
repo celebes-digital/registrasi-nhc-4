@@ -138,7 +138,7 @@ class Validation extends BaseConfig
 			]
 		],
 		'kelas' => [
-			'rules'     => 'required|in_list[senior,junior]',
+			'rules'     => 'required|in_list[senior,junior,beginner]',
 			'errors'    => [
 				'required'   => 'Kelas belum dipilih!',
 				'in_list'    => 'Pilihan Kelas tidak valid!'

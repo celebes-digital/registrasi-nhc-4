@@ -6,7 +6,8 @@ use CodeIgniter\Router\RouteCollection;
  * @var RouteCollection $routes
  */
 $routes->get('/registrasi/checkout', 'Registrasi::checkout');
-$routes->match(['GET', 'POST'], '/', 'Registrasi::peserta');
+$routes->match(['GET', 'POST'], '/', 'Home::index');
+$routes->match(['GET', 'POST'], '/registrasi', 'Registrasi::peserta');
 // $routes->match(['GET', 'POST'], '/', 'Registrasi::peserta');
 $routes->match(['GET', 'POST'], '/registrasi', 'Registrasi::peserta');
 $routes->match(['GET', 'POST'], '/registrasi/peserta/(:segment)', 'Registrasi::peserta/$1');
