@@ -142,6 +142,7 @@ class Registrasi extends BaseController
 				'alamat'        => strtoupper(trim($this->request->getPost('alamat'))),
 				'pendidikan'    => strtoupper(trim($this->request->getPost('pendidikan'))),
 				'foto'          => $fileName,
+				'kelas'         => $this->request->getPost('kelas'),
 				'tglRegistrasi' => date('Y-m-d H:i:s')
 			];
 
