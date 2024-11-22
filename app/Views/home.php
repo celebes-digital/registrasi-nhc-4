@@ -12,7 +12,7 @@
 	<!-- Meta Open Graph (Facebook, LinkedIn, etc.) -->
 	<meta property="og:title" content="Ngoding Holiday Camp - Belajar Coding Seru di Liburan Ini!">
 	<meta property="og:description" content="Nikmati pengalaman belajar coding yang menyenangkan untuk anak-anak dan remaja dengan Ngoding Holiday Camp. Temukan dunia digital dengan proyek coding seru!">
-	<meta property="og:image" content="assets/img/hero-removebg-preview.png">
+	<meta property="og:image" content="/assets/img/hero-removebg-preview.png">
 	<meta property="og:url" content="https://nhcbatch5.eventpro.id">
 	<meta property="og:type" content="website">
 
@@ -20,15 +20,15 @@
 	<meta name="twitter:card" content="summary_large_image">
 	<meta name="twitter:title" content="Ngoding Holiday Camp - Belajar Coding Seru di Liburan Ini!">
 	<meta name="twitter:description" content="Nikmati pengalaman belajar coding yang menyenangkan untuk anak-anak dan remaja dengan Ngoding Holiday Camp. Temukan dunia digital dengan proyek coding seru!">
-	<meta name="twitter:image" content="assets/img/hero-removebg-preview.png">
+	<meta name="twitter:image" content="/assets/img/hero-removebg-preview.png">
 
 	<!-- Meta Favicons -->
-	<link rel="icon" href="assets/img/favicon.ico" type="image/x-icon">
-	<link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+	<link rel="icon" href="/assets/img/favicon.ico" type="image/x-icon">
+	<link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
 
 	<!-- Favicons -->
-	<!-- <link href="assets/img/favicon.png" rel="icon" />
-    <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon" /> -->
+	<!-- <link href="/assets/img/favicon.png" rel="icon" />
+    <link href="/assets/img/apple-touch-icon.png" rel="apple-touch-icon" /> -->
 
 	<!-- Fonts -->
 	<link href="https://fonts.googleapis.com" rel="preconnect" />
@@ -38,14 +38,14 @@
 		rel="stylesheet" />
 
 	<!-- Vendor CSS Files -->
-	<link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
-	<link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet" />
-	<link href="assets/vendor/aos/aos.css" rel="stylesheet" />
-	<link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet" />
-	<link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet" />
+	<link href="/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+	<link href="/assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet" />
+	<link href="/assets/vendor/aos/aos.css" rel="stylesheet" />
+	<link href="/assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet" />
+	<link href="/assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet" />
 
 	<!-- Main CSS File -->
-	<link href="assets/css/main.css" rel="stylesheet" />
+	<link href="/assets/css/main.css" rel="stylesheet" />
 
 	<!-- =======================================================
   * Template Name: eNno
@@ -61,7 +61,7 @@
 		<div class="container-fluid container-xl position-relative d-flex align-items-center">
 			<a href="index.html" class="logo d-flex align-items-center me-auto">
 				<!-- Uncomment the line below if you also wish to use an image logo -->
-				<!-- <img src="assets/img/logo.png" alt=""> -->
+				<!-- <img src="/assets/img/logo.png" alt=""> -->
 				<h3 class="sitename d-none d-sm-block"><span style="color: #f9a825">Ngoding</span> Holiday Camp</h3>
 				<h3 class="sitename d-sm-none"><span style="color: #f9a825">N</span>HC</h3>
 			</a>
@@ -95,7 +95,7 @@
 						</div>
 					</div>
 					<div class="col-lg-6 order-1 order-lg-2 hero-img" data-aos="zoom-out" data-aos-delay="100">
-						<img src="assets/img/hero-removebg-preview.png" class="img-fluid animated" alt="" />
+						<img src="/assets/img/hero-removebg-preview.png" class="img-fluid animated" alt="" />
 					</div>
 				</div>
 			</div>
@@ -114,7 +114,7 @@
 			<div class="container">
 				<div class="row gy-4">
 					<div class="col-lg-6 position-relative align-self-start" data-aos="fade-up" data-aos-delay="100">
-						<img src="assets/img/portfolio/DSC05024.JPG" class="img-fluid" alt="" />
+						<img src="/assets/img/portfolio/DSC05024.JPG" class="img-fluid" alt="" />
 						<!-- <a href="https://www.youtube.com/watch?v=Y7f98aduVJ8" class="glightbox pulsating-play-btn"></a> -->
 					</div>
 					<div class="col-lg-6 content d-flex align-items-center" data-aos="fade-up" data-aos-delay="200">
@@ -143,14 +143,14 @@
 				<div class="row gy-4">
 					<div class="col-lg-6 col-md-6" data-aos="fade-up" data-aos-delay="100">
 						<div class="position-relative">
-							<img src="assets/img/brosur.jpg" alt="" class="img-fluid" />
+							<img src="/assets/img/brosur.jpg" alt="" class="img-fluid" />
 						</div>
 					</div>
 					<!-- End Service Item -->
 
 					<div class="col-lg-6 col-md-6" data-aos="fade-up" data-aos-delay="200">
 						<div class="position-relative">
-							<img src="assets/img/brosur2.jpg" alt="" class="img-fluid" />
+							<img src="/assets/img/brosur2.jpg" alt="" class="img-fluid" />
 						</div>
 					</div>
 					<!-- End Service Item -->
@@ -182,85 +182,85 @@
 
 					<div class="row gy-4 isotope-container" data-aos="fade-up" data-aos-delay="200">
 						<div class="col-lg-4 col-md-6 portfolio-item isotope-item nhc-3">
-							<img src="assets/img/portfolio/DSC04708.JPG" class="img-fluid" alt="" />
+							<img src="/assets/img/portfolio/DSC04708.JPG" class="img-fluid" alt="" />
 						</div>
 
 						<!-- End Portfolio Item -->
 
 						<div class="col-lg-4 col-md-6 portfolio-item isotope-item nhc-3">
-							<img src="assets/img/portfolio/DSC04713.JPG" class="img-fluid" alt="" />
+							<img src="/assets/img/portfolio/DSC04713.JPG" class="img-fluid" alt="" />
 						</div>
 						<!-- End Portfolio Item -->
 
 						<div class="col-lg-4 col-md-6 portfolio-item isotope-item nhc-3">
-							<img src="assets/img/portfolio/DSC04960.JPG" class="img-fluid" alt="" />
+							<img src="/assets/img/portfolio/DSC04960.JPG" class="img-fluid" alt="" />
 						</div>
 						<!-- End Portfolio Item -->
 
 						<div class="col-lg-4 col-md-6 portfolio-item isotope-item nhc-3">
-							<img src="assets/img/portfolio/Foto.JPG" class="img-fluid" alt="" />
+							<img src="/assets/img/portfolio/Foto.JPG" class="img-fluid" alt="" />
 						</div>
 						<!-- End Portfolio Item -->
 
 						<div class="col-lg-4 col-md-6 portfolio-item isotope-item nhc-3">
-							<img src="assets/img/portfolio/DSC05025.JPG" class="img-fluid" alt="" />
+							<img src="/assets/img/portfolio/DSC05025.JPG" class="img-fluid" alt="" />
 						</div>
 						<!-- End Portfolio Item -->
 
 						<div class="col-lg-4 col-md-6 portfolio-item isotope-item nhc-3">
-							<img src="assets/img/portfolio/DSC05115.JPG" class="img-fluid" alt="" />
+							<img src="/assets/img/portfolio/DSC05115.JPG" class="img-fluid" alt="" />
 						</div>
 						<!-- End Portfolio Item -->
 
 						<div class="col-lg-4 col-md-6 portfolio-item isotope-item nhc-3">
-							<img src="assets/img/portfolio/DSC05214.JPG" class="img-fluid" alt="" />
+							<img src="/assets/img/portfolio/DSC05214.JPG" class="img-fluid" alt="" />
 						</div>
 						<!-- End Portfolio Item -->
 
 						<div class="col-lg-4 col-md-6 portfolio-item isotope-item nhc-3">
-							<img src="assets/img/portfolio/DSC05257.JPG" class="img-fluid" alt="" />
+							<img src="/assets/img/portfolio/DSC05257.JPG" class="img-fluid" alt="" />
 						</div>
 						<!-- End Portfolio Item -->
 
 						<div class="col-lg-4 col-md-6 portfolio-item isotope-item nhc-3">
-							<img src="assets/img/portfolio/DSC05195.JPG" class="img-fluid" alt="" />
+							<img src="/assets/img/portfolio/DSC05195.JPG" class="img-fluid" alt="" />
 						</div>
 						<div class="col-lg-4 col-md-6 portfolio-item isotope-item nhc-1">
-							<img src="assets/img/portfolio/WhatsApp Image 2024-11-18 at 10.01.34_dcef1044.jpg" class="img-fluid" alt="" />
+							<img src="/assets/img/portfolio/WhatsApp Image 2024-11-18 at 10.01.34_dcef1044.jpg" class="img-fluid" alt="" />
 						</div>
 						<div class="col-lg-4 col-md-6 portfolio-item isotope-item nhc-1">
-							<img src="assets/img/portfolio/WhatsApp Image 2024-11-18 at 10.01.31_38f9815f.jpg" class="img-fluid" alt="" />
+							<img src="/assets/img/portfolio/WhatsApp Image 2024-11-18 at 10.01.31_38f9815f.jpg" class="img-fluid" alt="" />
 						</div>
 						<div class="col-lg-4 col-md-6 portfolio-item isotope-item nhc-1">
-							<img src="assets/img/portfolio/WhatsApp Image 2024-11-18 at 10.01.22_5802e83e.jpg" class="img-fluid" alt="" />
+							<img src="/assets/img/portfolio/WhatsApp Image 2024-11-18 at 10.01.22_5802e83e.jpg" class="img-fluid" alt="" />
 						</div>
 						<div class="col-lg-4 col-md-6 portfolio-item isotope-item nhc-1">
-							<img src="assets/img/portfolio/WhatsApp Image 2024-11-18 at 10.01.36_7ee1f2c0.jpg" class="img-fluid" alt="" />
+							<img src="/assets/img/portfolio/WhatsApp Image 2024-11-18 at 10.01.36_7ee1f2c0.jpg" class="img-fluid" alt="" />
 						</div>
 
 						<div class="col-lg-4 col-md-6 portfolio-item isotope-item nhc-2">
-							<img src="assets/img/portfolio/WhatsApp Image 2024-11-18 at 10.01.23_9d721d61.jpg" class="img-fluid" alt="" />
+							<img src="/assets/img/portfolio/WhatsApp Image 2024-11-18 at 10.01.23_9d721d61.jpg" class="img-fluid" alt="" />
 						</div>
 						<div class="col-lg-4 col-md-6 portfolio-item isotope-item nhc-2">
-							<img src="assets/img/portfolio/WhatsApp Image 2024-11-18 at 10.01.24_d06aae43.jpg" class="img-fluid" alt="" />
+							<img src="/assets/img/portfolio/WhatsApp Image 2024-11-18 at 10.01.24_d06aae43.jpg" class="img-fluid" alt="" />
 						</div>
 						<div class="col-lg-4 col-md-6 portfolio-item isotope-item nhc-2">
-							<img src="assets/img/portfolio/WhatsApp Image 2024-11-18 at 10.01.25_aa0e9c25.jpg" class="img-fluid" alt="" />
+							<img src="/assets/img/portfolio/WhatsApp Image 2024-11-18 at 10.01.25_aa0e9c25.jpg" class="img-fluid" alt="" />
 						</div>
 						<div class="col-lg-4 col-md-6 portfolio-item isotope-item nhc-2">
-							<img src="assets/img/portfolio/WhatsApp Image 2024-11-18 at 10.01.21_990f14f9.jpg" class="img-fluid" alt="" />
+							<img src="/assets/img/portfolio/WhatsApp Image 2024-11-18 at 10.01.21_990f14f9.jpg" class="img-fluid" alt="" />
 						</div>
 						<div class="col-lg-4 col-md-6 portfolio-item isotope-item nhc-2">
-							<img src="assets/img/portfolio/WhatsApp Image 2024-11-18 at 10.01.20_898f5212.jpg" class="img-fluid" alt="" />
+							<img src="/assets/img/portfolio/WhatsApp Image 2024-11-18 at 10.01.20_898f5212.jpg" class="img-fluid" alt="" />
 						</div>
 						<div class="col-lg-4 col-md-6 portfolio-item isotope-item nhc-2">
-							<img src="assets/img/portfolio/WhatsApp Image 2024-11-18 at 10.01.36_7ee1f2c0.jpg" class="img-fluid" alt="" />
+							<img src="/assets/img/portfolio/WhatsApp Image 2024-11-18 at 10.01.36_7ee1f2c0.jpg" class="img-fluid" alt="" />
 						</div>
 						<div class="col-lg-4 col-md-6 portfolio-item isotope-item nhc-2">
-							<img src="assets/img/portfolio/WhatsApp Image 2024-11-18 at 10.01.34_dcef1044.jpg" class="img-fluid" alt="" />
+							<img src="/assets/img/portfolio/WhatsApp Image 2024-11-18 at 10.01.34_dcef1044.jpg" class="img-fluid" alt="" />
 						</div>
 						<div class="col-lg-4 col-md-6 portfolio-item isotope-item nhc-2">
-							<img src="assets/img/portfolio/WhatsApp Image 2024-11-18 at 10.01.32_3d36fb02.jpg" class="img-fluid" alt="" />
+							<img src="/assets/img/portfolio/WhatsApp Image 2024-11-18 at 10.01.32_3d36fb02.jpg" class="img-fluid" alt="" />
 						</div>
 
 						<!-- End Portfolio Item -->
@@ -315,17 +315,17 @@
 	<div id="preloader"></div>
 
 	<!-- Vendor JS Files -->
-	<script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-	<script src="assets/vendor/php-email-form/validate.js"></script>
-	<script src="assets/vendor/aos/aos.js"></script>
-	<script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
-	<script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
-	<script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
-	<script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
-	<script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+	<script src="/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+	<script src="/assets/vendor/php-email-form/validate.js"></script>
+	<script src="/assets/vendor/aos/aos.js"></script>
+	<script src="/assets/vendor/glightbox/js/glightbox.min.js"></script>
+	<script src="/assets/vendor/purecounter/purecounter_vanilla.js"></script>
+	<script src="/assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
+	<script src="/assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+	<script src="/assets/vendor/swiper/swiper-bundle.min.js"></script>
 
 	<!-- Main JS File -->
-	<script src="assets/js/main.js"></script>
+	<script src="/assets/js/main.js"></script>
 </body>
 
 </html>
