@@ -20,6 +20,9 @@ class PesertaModel extends Model
 		'noTelp',
 		'alamat',
 		'pendidikan',
+		'sekolah',
+		'kelas_sekolah',
+		'informasi',
 		'tgl_lahir',
 		'foto',
 		'kelas',
@@ -89,7 +92,7 @@ class PesertaModel extends Model
 		! $where || $this->builder()->where($where);
 
 		return $this->builder()
-					->select('peserta.idPeserta, nama, jenisKelamin, tgl_lahir, alamat, pendidikan,
+					->select('peserta.idPeserta, nama, jenisKelamin, tgl_lahir, alamat, pendidikan, sekolah, kelas_sekolah, informasi,
 							tglRegistrasi, kodeRegistrasi, noTelp, tglValidasi, validasi, peserta.foto, kelas')
 					->join('detail_peserta', 'peserta.idPeserta = detail_peserta.idPeserta', 'left');
 	}

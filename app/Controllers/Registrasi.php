@@ -131,6 +131,9 @@ class Registrasi extends BaseController
 				return redirect()->back()->withInput()->with('error', 'Foto belum diunggah atau tidak valid!');
 			}
 
+			$informasi 			= $this->request->getPost('informasi');
+			$informasiLainnya 	= $this->request->getPost('lainnya_input');
+
 			// Simpan data peserta
 			$noTelp = formatPhone($this->request->getVar('noTelp'));
 			$dataPeserta = [
@@ -141,10 +144,16 @@ class Registrasi extends BaseController
 				'noTelp'        => $noTelp,
 				'alamat'        => strtoupper(trim($this->request->getPost('alamat'))),
 				'pendidikan'    => strtoupper(trim($this->request->getPost('pendidikan'))),
+				'sekolah'    	=> strtoupper(trim($this->request->getPost('sekolah'))),
+				'kelas_sekolah'	=> strtoupper(trim($this->request->getPost('kelas_sekolah'))),
+				'informasi'		=> $informasi == 'lainnya' ? $informasiLainnya : $informasi,
 				'foto'          => $fileName,
 				'kelas'         => $this->request->getPost('kelas'),
 				'tglRegistrasi' => date('Y-m-d H:i:s')
 			];
+			// dd($this->request->getPost());
+			// dd($dataPeserta);
+			// dd($dataPeserta['informasi']);
 
 			$detailPeserta['validasi'] = '0';
 

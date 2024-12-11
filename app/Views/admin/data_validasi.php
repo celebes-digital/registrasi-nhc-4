@@ -57,10 +57,14 @@ $this->section('mainSection');
 							<th class="p-2">KELAMIN</th>
 							<th class="p-2">ALAMAT</th>
 							<th class="p-2">PENDIDIKAN</th>
+							<th class="p-2">SEKOLAH</th>
+							<th class="p-2">KELAS</th>
+							<th class="p-2">INFORMASI</th>
 							<th class="p-2">FOTO</th>
-							<th class="p-2">Kelas</th>
+							<th class="p-2">KELAS NHC</th>
 							<th class="p-2">VALIDASI</th>
 							<th class="p-2">TGL. REGISTRASI</th>
+							<th class="p-2">ACTION</th>
 						</tr>
 					</thead>
 
@@ -83,6 +87,9 @@ $this->section('mainSection');
 									<td class="p-2"><?= $peserta->jenisKelamin == 'l' ? 'Laki-laki' : 'Perempuan'; ?></td>
 									<td class="p-2"><?= $peserta->alamat; ?></td>
 									<td class="p-2"><?= $peserta->pendidikan; ?></td>
+									<td class="p-2"><?= $peserta->sekolah; ?></td>
+									<td class="p-2"><?= $peserta->kelas_sekolah; ?></td>
+									<td class="p-2"><?= $peserta->informasi; ?></td>
 									<td class="p-2">
 										<!-- <img src="<? #= base_url(); ?>/img/registrasi/<? #= $peserta->foto; ?>" class="img-fluid img-thumbnail h-25" alt="<? #= $peserta->nama; ?>"> -->
 										<img src="<?= base_url(); ?>/img/registrasi/<?= $peserta->foto; ?>"
@@ -104,6 +111,16 @@ $this->section('mainSection');
 									</td>
 									<td class="p-2"><?= $peserta->validasi == '0' ? 'X' : 'Y'; ?></td>
 									<td class="p-2"><?= date('d F, Y - H:i:s', strtotime($peserta->tglRegistrasi)); ?></td>
+									<td class="p-2">
+										<a href="/admin/peserta/edit/<?= $peserta->idPeserta; ?>">
+											<i class="bi bi-pencil"></i>
+											Edit
+										</a>
+										<a href="/admin/peserta/hapus/<?= $peserta->idPeserta; ?>">
+											<i class="bi bi-trash"></i>
+											Delete
+										</a>
+									</td>
 									<!-- <td class="p-2"><?php //echo strtoupper($peserta->jenisKelamin); 
 															?></td>
 									<td class="p-2"><?php //echo $peserta->namaUsaha; 

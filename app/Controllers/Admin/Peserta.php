@@ -267,9 +267,9 @@ class Peserta extends BaseController
 
 		if ( $peserta )
 		{
-			if ( file_exists(FCPATH . 'img/admin/dokumen/'.$peserta->foto) )
+			if ( file_exists(FCPATH . 'img/registrasi/'.$peserta->foto) )
 			{
-				unlink(FCPATH . 'img/admin/dokumen/'.$peserta->foto);
+				unlink(FCPATH . 'img/registrasi/'.$peserta->foto);
 			}
 
 			$this->PesertaModel->delete(['idPeserta' => $idPeserta]);
@@ -280,6 +280,13 @@ class Peserta extends BaseController
 		{
 			return redirect()->to('/admin/peserta/followup')->with('info', "Data Peserta tidak ditemukan!");
 		}
+	}
+
+	public function edit(int $idPeserta = null)
+	{
+		$this->data['title'] = 'Edit Peserta';
+		$this->data['peserta'] = $this->PesertaModel->detailPeserta(['peserta.idPeserta' => $idPeserta])->get()->getRow();
+		return view('admin/editPeserta', $this->data);
 	}
 
 	/**

@@ -17,6 +17,8 @@ $routes->group('admin', static function($routes) {
 	$routes->get('home', 'Admin\Home::index');
 	$routes->get('event/exportDataPeserta', 'Admin\Event::exportDataPeserta');
 	$routes->get('peserta/(:segment)', 'Admin\Peserta::$1');
+	$routes->match(['GET', 'POST'], 'peserta/edit/(:num)', 'Admin\Peserta::edit/$1');
+	$routes->match(['GET', 'POST'], 'peserta/hapus/(:num)', 'Admin\Peserta::hapus/$1');
 	$routes->get('peserta/(:segment)/(:segment)', 'Admin\Peserta::$1/$2');
 	$routes->post('event/registrasi', 'Admin\Event::registrasi');
 	$routes->match(['GET', 'POST'], 'dpd/update', 'Admin\Dpd::update');

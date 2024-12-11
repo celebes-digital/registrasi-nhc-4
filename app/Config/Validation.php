@@ -168,6 +168,27 @@ class Validation extends BaseConfig
 				'in_list'    => 'Pilihan pendidikan tidak valid!'
 			]
 		],
+		'sekolah' => [
+			'rules'     => 'required',
+			'errors'    => [
+				'required'   => 'Sekolah belum dipilih!',
+				'in_list'    => 'Pilihan sekolah tidak valid!'
+			]
+		],
+		'kelas_sekolah' => [
+			'rules'     => 'required',
+			'errors'    => [
+				'required'   => 'Kelas sekolah belum dipilih!',
+				'in_list'    => 'Pilihan kelas sekolah tidak valid!'
+			]
+		],
+		'informasi' => [
+			'rules'     => 'required',
+			'errors'    => [
+				'required'   => 'Informasi belum dipilih!',
+				'in_list'    => 'Pilihan informasi tidak valid!'
+			]
+		],
 		'foto' => [
 			'rules'     => 'uploaded[foto]|is_image[foto]|mime_in[foto,image/jpg,image/jpeg,image/png]|max_size[foto,5120]', // 5MB
 			'errors'    => [

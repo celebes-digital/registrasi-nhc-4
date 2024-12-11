@@ -51,6 +51,18 @@ class Peserta extends Migration
 				'type'       => 'VARCHAR',
 				'constraint' => 100,
 			],
+			'sekolah' => [
+				'type'       => 'VARCHAR',
+				'constraint' => 255,
+			],
+			'kelas_sekolah' => [
+				'type'       => 'VARCHAR',
+				'constraint' => 255,
+			],
+			'informasi' => [
+				'type'       => 'VARCHAR',
+				'constraint' => 255,
+			],
 			'tgl_lahir' => [
 				'type' => 'DATE',
 			],
