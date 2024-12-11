@@ -158,7 +158,7 @@ class Registrasi extends BaseController
 			if ($this->PesertaModel->save($dataPeserta)) {
 
 				$notifikasi = notifRegistrasi($dataEvent);
-				$imgUrl = $dataPeserta['kelas'] == 'junior' ? base_url('img/flayer2.jpg' . $code . '.png') : base_url('img/flayer1.jpg' . $code . '.png');
+				$imgUrl = $dataPeserta['kelas'] == 'junior' ? base_url('assets/img/brosur-anak.webp') : base_url('assets/img/brosur-dewasa.webp');
 				$sendWA = $this->WAapi->postMsgImg($notifikasi, $dataPeserta['noTelp'], $imgUrl);
 
 				$detailPeserta['idPeserta'] = $this->PesertaModel->getInsertID();

@@ -18,10 +18,10 @@ $this->section('mainSection');
 		<div class="shadow rounded-3 d-flex justify-content-center py-5">
 			<div class="mb-4 row row-cols-1 row-cols-md-2">
 				<!-- <img src="/img/flayer-kolaborasi.jpeg" alt="Nama Event" class="img-fluid" /> -->
-			<img src="/img/flayer-1.jpeg" alt="Nama Event" class="img-fluid col" />
-			<img src="/img/flayer-2.jpeg" alt="Nama Event" class="img-fluid col" />
-	</div>
-	</div>
+				<img src="/assets/img/brosur-anak.webp" alt="Nama Event" class="img-fluid col" />
+				<img src="/assets/img/brosur-dewasa.webp alt="Nama Event" class="img-fluid col" />
+			</div>
+		</div>
 	</div>
 </form>
 
