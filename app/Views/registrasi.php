@@ -157,6 +157,7 @@ enctype="multipart/form-data" role="form" class="pb-5 shadow" style="max-width: 
 		</button>
 	</div>
 <?php endif; ?>
+
 </form>
 <script defer>
 	document.getElementById('foto').addEventListener('change', function(e) {
