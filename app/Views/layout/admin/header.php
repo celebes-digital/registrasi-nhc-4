@@ -71,7 +71,7 @@
 			}
 			.label-secondary {
 				background-color: #a3a5a7;
-				color: ##787878;
+				color: #787878;
 			}
 		</style>
 	</head>
@@ -80,12 +80,12 @@
 		<!-- ============================================================== -->
 		<!-- Preloader - style you can find in spinners.css -->
 		<!-- ============================================================== -->
-		<div class="preloader">
+		<!-- <div class="preloader">
 			<div class="loader">
 				<div class="loader__figure"></div>
 				<p class="loader__label">CelebesDigital</p>
 			</div>
-		</div>
+		</div> -->
 
 		<div id="main-wrapper">
 			<!-- flashdata -->

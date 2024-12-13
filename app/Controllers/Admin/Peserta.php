@@ -274,11 +274,11 @@ class Peserta extends BaseController
 
 			$this->PesertaModel->delete(['idPeserta' => $idPeserta]);
 			$this->DetailPesertaModel->delete(['idPeserta' => $idPeserta]);
-			return redirect()->to('/admin/peserta/followup')->with('info', "Data Peserta sudah dihapus!");
+			return redirect()->to('/admin/peserta/validasi')->with('info', "Data Peserta sudah dihapus!");
 		}
 		else
 		{
-			return redirect()->to('/admin/peserta/followup')->with('info', "Data Peserta tidak ditemukan!");
+			return redirect()->to('/admin/peserta/validasi')->with('info', "Data Peserta tidak ditemukan!");
 		}
 	}
 

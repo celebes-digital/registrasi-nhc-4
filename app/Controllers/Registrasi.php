@@ -100,7 +100,7 @@ class Registrasi extends BaseController
 	 * @return void
 	 */
 	// ? Gunakan ini jika peserta langsung di verifikasi ketika registrasi
-	public function peserta()
+	public function peserta(int $idPeserta = null)
 	{
 		$rules = setting('Validation.registrasi');
 
@@ -119,14 +119,16 @@ class Registrasi extends BaseController
 			if ($fileFoto && $fileFoto->isValid()) {
 				$namaPeserta = strtoupper(trim($this->request->getPost('nama')));
 				$snakeCaseNama = strtolower(preg_replace('/[^a-zA-Z0-9]+/', '_', $namaPeserta));
-				$fileName = $snakeCaseNama . '.' . $fileFoto->getExtension();
+				$imgFileName = $snakeCaseNama . '.' . $fileFoto->getExtension();
+				$fileName = $snakeCaseNama;
 
-				$uploadPath = $path;
-				if (!is_dir($uploadPath)) {
-					mkdir($uploadPath, 0777, true);
-				}
-
-				$fileFoto->move($uploadPath, $fileName);
+				$fileFoto->move($path, $imgFileName, true);
+				$this->Image->withFile($path . '/' . $imgFileName)
+										->resize(800, 800, true, 'width')
+										->convert(IMAGETYPE_WEBP)
+										->save($path . '/' . $fileName.'.webp', 60);
+							@unlink($path .'/'.$imgFileName);
+				// $dataPeserta['foto'] = $fileName;
 			} else {
 				return redirect()->back()->withInput()->with('error', 'Foto belum diunggah atau tidak valid!');
 			}
@@ -147,13 +149,12 @@ class Registrasi extends BaseController
 				'sekolah'    	=> strtoupper(trim($this->request->getPost('sekolah'))),
 				'kelas_sekolah'	=> strtoupper(trim($this->request->getPost('kelas_sekolah'))),
 				'informasi'		=> $informasi == 'lainnya' ? $informasiLainnya : $informasi,
-				'foto'          => $fileName,
+				'foto'          => $fileName.'.webp',
 				'kelas'         => $this->request->getPost('kelas'),
 				'tglRegistrasi' => date('Y-m-d H:i:s')
 			];
-			// dd($this->request->getPost());
-			// dd($dataPeserta);
-			// dd($dataPeserta['informasi']);
+
+			!$idPeserta || $dataPeserta['idPeserta'] = $idPeserta;
 
 			$detailPeserta['validasi'] = '0';
 
@@ -172,14 +173,22 @@ class Registrasi extends BaseController
 
 				$detailPeserta['idPeserta'] = $this->PesertaModel->getInsertID();
 				$detailPeserta['kodeRegistrasi'] = $code;
+				$this->DetailPesertaModel->save($detailPeserta);
 
-				if ($this->DetailPesertaModel->save($detailPeserta)) {
+				if (isset($_SESSION['user']) AND $idPeserta){
+					return redirect()->to('/admin/peserta/edit/'.$idPeserta);
+				}else{
 					return redirect()->to('/registrasi/checkout?id=' . $this->PesertaModel->getInsertID());
 				}
 			}
 		}
-
-		return view('registrasi', $this->data);
+		if (isset($_SESSION['user']) AND $idPeserta){
+			$this->data['title'] = 'Edit Peserta';
+			$this->data['peserta'] = $this->PesertaModel->detailPeserta(['peserta.idPeserta' => $idPeserta])->get()->getRow();
+			return view('admin/editPeserta', $this->data);
+		}else{
+			return view('registrasi', $this->data);
+		}
 	}
 
 	// https://simulator.sandbox.midtrans.com/qris/index

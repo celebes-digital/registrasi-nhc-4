@@ -136,6 +136,7 @@ enctype="multipart/form-data" role="form" class="pb-5 shadow" style="max-width: 
 			class="form-select <?= validation_show_error('informasi') ? 'is-invalid' : ''; ?>"
 			onchange="toggleLainnyaInput(event)">
 			<option value="" <?= presetSelect('informasi', '', $peserta->informasi); ?>>Pilih informasi</option>
+			<option value="<?= $peserta->informasi; ?>" <?= presetSelect('informasi', $peserta->informasi , $peserta->informasi); ?>><?= $peserta->informasi; ?></option>
 			<option value="sekolah" <?= presetSelect('informasi', 'sekolah', $peserta->informasi); ?>>Sosialisasi sekolah</option>
 			<option value="teman" <?= presetSelect('informasi', 'teman', $peserta->informasi); ?>>Teman atau kerabat</option>
 			<option value="sosial_media" <?= presetSelect('informasi', 'sosial_media', $peserta->informasi); ?>>Sosial media</option>

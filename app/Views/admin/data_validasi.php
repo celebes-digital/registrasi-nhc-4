@@ -116,7 +116,7 @@ $this->section('mainSection');
 											<i class="bi bi-pencil"></i>
 											Edit
 										</a>
-										<a href="/admin/peserta/hapus/<?= $peserta->idPeserta; ?>">
+										<a href="/admin/peserta/hapus/<?= $peserta->idPeserta; ?>" onclick="return confirm('Apakah Anda yakin ingin menghapus data <?= $peserta->nama;?>?');" >
 											<i class="bi bi-trash"></i>
 											Delete
 										</a>
