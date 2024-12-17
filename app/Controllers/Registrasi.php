@@ -162,13 +162,13 @@ class Registrasi extends BaseController
 			$this->QRCode::generate($code);
 
 			$dataEvent['event'] = [
-				'nama_peserta'  => 'Bapak/Ibu ' . trim($dataPeserta['nama']),
+				'nama_peserta'  => 'Kak ' . trim($dataPeserta['nama']),
 			];
 
 			if ($this->PesertaModel->save($dataPeserta)) {
 
 				$notifikasi = notifRegistrasi($dataEvent);
-				$imgUrl = $dataPeserta['kelas'] == 'junior' ? base_url('assets/img/brosur-anak.webp') : base_url('assets/img/brosur-dewasa.webp');
+				$imgUrl = $dataPeserta['kelas'] == 'junior' ? base_url('assets/img/brosur-anak.jpg') : base_url('assets/img/brosur-dewasa.jpg');
 				$sendWA = $this->WAapi->postMsgImg($notifikasi, $dataPeserta['noTelp'], $imgUrl);
 
 				$detailPeserta['idPeserta'] = $this->PesertaModel->getInsertID();
