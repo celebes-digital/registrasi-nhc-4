@@ -154,8 +154,6 @@ class Registrasi extends BaseController
 				'tglRegistrasi' => date('Y-m-d H:i:s')
 			];
 
-			!$idPeserta || $dataPeserta['idPeserta'] = $idPeserta;
-
 			$detailPeserta['validasi'] = '0';
 
 			$code = generateCode();
@@ -175,11 +173,7 @@ class Registrasi extends BaseController
 				$detailPeserta['kodeRegistrasi'] = $code;
 				$this->DetailPesertaModel->save($detailPeserta);
 
-				if (isset($_SESSION['user']) AND $idPeserta){
-					return redirect()->to('/admin/peserta/edit/'.$idPeserta);
-				}else{
-					return redirect()->to('/registrasi/checkout?id=' . $this->PesertaModel->getInsertID());
-				}
+				return redirect()->to('/registrasi/checkout?id=' . $this->PesertaModel->getInsertID());
 			}
 		}
 		if (isset($_SESSION['user']) AND $idPeserta){

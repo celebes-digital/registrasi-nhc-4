@@ -200,6 +200,82 @@ class Validation extends BaseConfig
 		],
 	];
 
+	public $edit = [
+		'nama' => [
+			'rules'     => 'required|min_length[2]|max_length[100]',
+			'errors'    => [
+				'required'   => 'Nama belum diisi!',
+				'min_length' => 'Nama minimal 2 karakter!',
+				'max_length' => 'Nama maksimal 100 karakter!'
+			]
+		],
+		'tgl_lahir' => [
+			'rules'     => 'required|valid_date',
+			'errors'    => [
+				'required'   => 'Tanggal lahir belum diisi!',
+				'valid_date' => 'Format tanggal lahir tidak valid!'
+			]
+		],
+		'jenisKelamin' => [
+			'rules'     => 'required|in_list[l,p]',
+			'errors'    => [
+				'required'   => 'Jenis kelamin belum dipilih!',
+				'in_list'    => 'Pilihan jenis kelamin tidak valid!'
+			]
+		],
+		'kelas' => [
+			'rules'     => 'required|in_list[senior,junior,beginner]',
+			'errors'    => [
+				'required'   => 'Kelas belum dipilih!',
+				'in_list'    => 'Pilihan Kelas tidak valid!'
+			]
+		],
+		'noTelp' => [
+			'rules'     => 'required|numeric|min_length[10]|max_length[15]',
+			'errors'    => [
+				'required'   => 'No. Telepon belum diisi!',
+				'numeric'    => 'No. Telepon harus berupa angka!',
+				'min_length' => 'No. Telepon minimal 10 digit!',
+				'max_length' => 'No. Telepon maksimal 15 digit!'
+			]
+		],
+		'alamat' => [
+			'rules'     => 'required|min_length[5]|max_length[255]',
+			'errors'    => [
+				'required'   => 'Alamat belum diisi!',
+				'min_length' => 'Alamat terlalu pendek!',
+				'max_length' => 'Alamat terlalu panjang!'
+			]
+		],
+		'pendidikan' => [
+			'rules'     => 'required',
+			'errors'    => [
+				'required'   => 'Pendidikan belum dipilih!',
+				'in_list'    => 'Pilihan pendidikan tidak valid!'
+			]
+		],
+		'sekolah' => [
+			'rules'     => 'required',
+			'errors'    => [
+				'required'   => 'Sekolah belum dipilih!',
+				'in_list'    => 'Pilihan sekolah tidak valid!'
+			]
+		],
+		'kelas_sekolah' => [
+			'rules'     => 'required',
+			'errors'    => [
+				'required'   => 'Kelas sekolah belum dipilih!',
+				'in_list'    => 'Pilihan kelas sekolah tidak valid!'
+			]
+		],
+		'informasi' => [
+			'rules'     => 'required',
+			'errors'    => [
+				'required'   => 'Informasi belum dipilih!',
+				'in_list'    => 'Pilihan informasi tidak valid!'
+			]
+		],
+	];
 	public $event = [
 		'namaEvent' => [
 			'rules'				=> 'required',

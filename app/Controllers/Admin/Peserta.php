@@ -282,10 +282,63 @@ class Peserta extends BaseController
 		}
 	}
 
-	public function edit(int $idPeserta = null)
+	public function edit(int $idPeserta)
 	{
 		$this->data['title'] = 'Edit Peserta';
 		$this->data['peserta'] = $this->PesertaModel->detailPeserta(['peserta.idPeserta' => $idPeserta])->get()->getRow();
+		$rules = setting('Validation.edit');
+
+		$this->data['title'] 			= $this->data['event'] ? 'Registrasi Event ' . $this->data['event']->namaEvent : 'EventPro Registration System by CelebesDigital';
+		$this->data['ogDescription'] 	= $this->data['event'] ? $this->data['event']->namaEvent : 'EventPro Registration System by CelebesDigital';
+		$this->data['metaDescription'] 	= $this->data['event'] ? $this->data['event']->namaEvent : 'EventPro Registration System by CelebesDigital';;
+
+		if ($this->request->getPost()) {
+			if (! $this->validate($rules)) {
+				return redirect()->back()->withInput();
+			}
+
+			// Upload Foto
+			$fileFoto = $this->request->getFile('foto');
+			$path	= FCPATH . 'img/registrasi/';
+			if ($fileFoto && $fileFoto->isValid()) {
+				$namaPeserta = strtoupper(trim($this->request->getPost('nama')));
+				$snakeCaseNama = strtolower(preg_replace('/[^a-zA-Z0-9]+/', '_', $namaPeserta));
+				$imgFileName = $snakeCaseNama . '.' . $fileFoto->getExtension();
+				$fileName = $snakeCaseNama;
+				$fileFoto->move($path, $imgFileName, true);
+				$this->Image->withFile($path . '/' . $imgFileName)
+										->resize(800, 800, true, 'width')
+										->convert(IMAGETYPE_WEBP)
+										->save($path . '/' . $fileName.'.webp', 60);
+							@unlink($path .'/'.$imgFileName);
+			}
+			$informasi 			= $this->request->getPost('informasi');
+			$informasiLainnya 	= $this->request->getPost('lainnya_input');
+
+			// Simpan data peserta
+			$noTelp = formatPhone($this->request->getVar('noTelp'));
+			$dataPeserta = [
+				'idPeserta'     => $idPeserta,
+				'idEvent'       => $this->data['event'] ? $this->data['event']->idEvent : 0,
+				'nama'          => strtoupper(trim($this->request->getPost('nama'))),
+				'tgl_lahir'     => strtoupper(trim($this->request->getPost('tgl_lahir'))),
+				'jenisKelamin'  => $this->request->getPost('jenisKelamin'),
+				'noTelp'        => $noTelp,
+				'alamat'        => strtoupper(trim($this->request->getPost('alamat'))),
+				'pendidikan'    => strtoupper(trim($this->request->getPost('pendidikan'))),
+				'sekolah'    	=> strtoupper(trim($this->request->getPost('sekolah'))),
+				'kelas_sekolah'	=> strtoupper(trim($this->request->getPost('kelas_sekolah'))),
+				'informasi'		=> $informasi == 'lainnya' ? $informasiLainnya : $informasi,
+				'foto'          => isset($fileName) ? $fileName.'.webp' : $this->data['peserta']->foto,
+				'kelas'         => $this->request->getPost('kelas'),
+				'tglRegistrasi' => date('Y-m-d H:i:s')
+			];
+
+			if ($this->PesertaModel->save($dataPeserta)) {
+
+				return redirect()->to('/admin/peserta/validasi');
+			}
+		}
 		return view('admin/editPeserta', $this->data);
 	}
 

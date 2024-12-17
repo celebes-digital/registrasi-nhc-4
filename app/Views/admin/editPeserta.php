@@ -157,8 +157,8 @@ enctype="multipart/form-data" role="form" class="pb-5 shadow" style="max-width: 
 	<div class="form-group">
 		<label for="foto">Upload Foto Pribadi <span class="text-danger">*</span></label>
 		<input type="file" name="foto" id="foto" accept="image/*"
-			class="form-control <?= validation_show_error('foto') ? 'is-invalid' : ''; ?>">
-		<div class="invalid-feedback"><?= validation_show_error('foto'); ?></div>
+			class="form-control">
+		<!-- <div class="invalid-feedback"><= validation_show_error('foto'); ?></div> -->
 		<div class="d-flex flex-column">
 			<small class="text-muted">Foto akan digunakan sebagai foto ID CARD</small>
 			<small class="text-muted">Format: JPG, PNG. Maksimal 5MB</small>
