@@ -58,9 +58,11 @@
 										<tr>
 											<th class="p-2">NO</th>
 											<th class="p-2">NAMA</th>
-											<th class="p-2">NO. TELP</th>
-											<th class="p-2">ASAL INSTANSI</th>
-											<th class="p-2">JABATAN</th>
+											<th class="p-2">Alamat</th>
+											<th class="p-2">Sekolah</th>
+											<th class="p-2">Kelas</th>
+											<th class="p-2">Informasi</th>
+											<th class="p-2">Level</th>
 											<th class="p-2">Tanggal Absen</th>
 											<th class="p-2">E-TIKET</th>
 										</tr>
@@ -75,9 +77,11 @@
 											<tr>
 												<td><?= $no++; ?></td>
 												<td><?= $data->nama; ?></td>
-												<td><?= $data->noTelp; ?></td>
-												<td><?= $data->asalInstansi; ?></td>
-												<td><?= $data->jabatan; ?></td>
+												<td><?= $data->alamat; ?></td>
+												<td><?= $data->sekolah; ?></td>
+												<td><?= $data->kelas_sekolah; ?></td>
+												<td><?= str_replace('-',' ',$data->informasi); ?></td>
+												<td><?= $data->kelas; ?></td>
 												<td><?= $data->tglAbsensi; ?></td>
 												<td><?= $data->kodeRegistrasi; ?></td>
 											</tr>

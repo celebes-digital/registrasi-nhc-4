@@ -82,7 +82,7 @@ class EventModel extends Model
 		! $where || $this->builder()->where($where);
 
 		return $this->builder()
-					->select('peserta.tglRegistrasi, nama, jenisKelamin, namaUsaha, email, noTelp, tglAbsensi, kodeRegistrasi, asalInstansi, jabatan')
+					->select('peserta.tglRegistrasi, nama, jenisKelamin, sekolah,kelas_sekolah,peserta.alamat,informasi,kelas, noTelp, tglAbsensi, kodeRegistrasi')
 					// ->join('sesi', 'event.idEvent = sesi.idEvent', 'left')
 					// ->join('registrasi', 'sesi.idSesi = registrasi.idSesi', 'left')
 					->join('registrasi', 'event.idEvent = registrasi.idEvent', 'left')
